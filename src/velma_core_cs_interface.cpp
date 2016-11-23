@@ -27,17 +27,34 @@
 
 #include <rtt/Component.hpp>
 
-#include "velma_core_cs_interface/velma_core_cs_status_ports.h"
 #include "velma_core_cs_interface/velma_core_cs_command_ports.h"
+#include "velma_core_cs_interface/velma_core_cs_status_ports.h"
+#include "velma_core_cs_msgs/VelmaCoreCsCommand.h"
+#include "velma_core_cs_msgs/VelmaCoreCsStatus.h"
 
 #include "common_interfaces/interface_tx.h"
 #include "common_interfaces/interface_rx.h"
 
-typedef InterfaceTx<velma_core_cs_types::VelmaCoreCsStatus_Ports > VelmaCoreCsTx;
+#include "common_interfaces/message_split.h"
+#include "common_interfaces/message_concate.h"
+
+typedef InterfaceTx<velma_core_cs_msgs::VelmaCoreCsStatus > VelmaCoreCsTx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
 
-typedef InterfaceRx<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsRx;
+typedef InterfaceRx<velma_core_cs_msgs::VelmaCoreCsCommand > VelmaCoreCsRx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
+
+typedef MessageSplit<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsCommandSplit;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsCommandSplit)
+
+typedef MessageConcate<velma_core_cs_types::VelmaCoreCsStatus_Ports > VelmaCoreCsStatusConcate;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsStatusConcate)
+
+typedef MessageSplit<velma_core_cs_types::VelmaCoreCsStatus_Ports > VelmaCoreCsStatusSplit;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsStatusSplit)
+
+typedef MessageConcate<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsCommandConcate;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsCommandConcate)
 
 ORO_CREATE_COMPONENT_LIBRARY()
 
