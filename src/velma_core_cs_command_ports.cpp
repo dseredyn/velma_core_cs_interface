@@ -25,9 +25,9 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "velma_core_cs_interface/velma_core_cs_command_ports.h"
+#include "velma_core_cs_task_cs_interface/velma_core_cs_command_ports.h"
 
-using namespace velma_core_cs_msgs;
+using namespace velma_core_cs_task_cs_msgs;
 
 namespace velma_core_cs_types {
 

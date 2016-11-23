@@ -27,10 +27,10 @@
 
 #include <rtt/Component.hpp>
 
-#include "velma_core_cs_interface/velma_core_cs_command_ports.h"
-#include "velma_core_cs_interface/velma_core_cs_status_ports.h"
-#include "velma_core_cs_msgs/VelmaCoreCsCommand.h"
-#include "velma_core_cs_msgs/VelmaCoreCsStatus.h"
+#include "velma_core_cs_task_cs_interface/velma_core_cs_command_ports.h"
+#include "velma_core_cs_task_cs_interface/velma_core_cs_status_ports.h"
+#include "velma_core_cs_task_cs_msgs/VelmaCoreCsCommand.h"
+#include "velma_core_cs_task_cs_msgs/VelmaCoreCsStatus.h"
 
 #include "common_interfaces/interface_tx.h"
 #include "common_interfaces/interface_rx.h"
@@ -38,10 +38,10 @@
 #include "common_interfaces/message_split.h"
 #include "common_interfaces/message_concate.h"
 
-typedef InterfaceTx<velma_core_cs_msgs::VelmaCoreCsStatus > VelmaCoreCsTx;
+typedef InterfaceTx<velma_core_cs_task_cs_msgs::VelmaCoreCsStatus > VelmaCoreCsTx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
 
-typedef InterfaceRx<velma_core_cs_msgs::VelmaCoreCsCommand > VelmaCoreCsRx;
+typedef InterfaceRx<velma_core_cs_task_cs_msgs::VelmaCoreCsCommand > VelmaCoreCsRx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
 
 typedef MessageSplit<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsCommandSplit;

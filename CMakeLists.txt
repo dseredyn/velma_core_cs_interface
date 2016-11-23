@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(velma_core_cs_interface)
+project(velma_core_cs_task_cs_interface)
 
 ### ROS Dependencies ###
 # Find the RTT-ROS package (this transitively includes the Orocos CMake macros)
 find_package(catkin REQUIRED COMPONENTS
   rtt_ros
   diagnostic_msgs
-  velma_core_cs_msgs
+  velma_core_cs_task_cs_msgs
   eigen_conversions
   kdl_conversions cmake_modules
   common_interfaces
@@ -33,13 +33,13 @@ include_directories(${USE_OROCOS_INCLUDE_DIRS} include)
 ADD_DEFINITIONS(-DEIGEN_RUNTIME_NO_MALLOC)
 ### Orocos Targets ###
 
-orocos_component(velma_core_cs_interface
-    src/velma_core_cs_interface.cpp
+orocos_component(velma_core_cs_task_cs_interface
+    src/velma_core_cs_task_cs_interface.cpp
     src/velma_core_cs_status_ports.cpp
     src/velma_core_cs_command_ports.cpp
 )
 
-target_link_libraries(velma_core_cs_interface
+target_link_libraries(velma_core_cs_task_cs_interface
     ${catkin_LIBRARIES}
     ${USE_OROCOS_LIBRARIES}
     ${orocos_kdl_LIBRARIES}
@@ -51,7 +51,7 @@ target_link_libraries(velma_core_cs_interface
 # Export package information (replaces catkin_package() macro) 
 orocos_generate_package(
   INCLUDE_DIRS include
-  LIBRARIES velma_core_cs_interface
+  LIBRARIES velma_core_cs_task_cs_interface
   CATKIN_DEPENDS rtt_ros geometry_msgs std_msgs message_runtime rtt_roscomm common_interfaces
 )
 
