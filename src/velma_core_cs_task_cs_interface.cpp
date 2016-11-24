@@ -27,10 +27,10 @@
 
 #include <rtt/Component.hpp>
 
-#include "velma_core_cs_task_cs_interface/velma_core_cs_command_ports.h"
-#include "velma_core_cs_task_cs_interface/velma_core_cs_status_ports.h"
-#include "velma_core_cs_task_cs_msgs/VelmaCoreCsCommand.h"
-#include "velma_core_cs_task_cs_msgs/VelmaCoreCsStatus.h"
+#include "velma_core_cs_task_cs_interface/command_ports.h"
+#include "velma_core_cs_task_cs_interface/status_ports.h"
+#include "velma_core_cs_task_cs_msgs/Command.h"
+#include "velma_core_cs_task_cs_msgs/Status.h"
 
 #include "common_interfaces/interface_tx.h"
 #include "common_interfaces/interface_rx.h"
@@ -38,23 +38,23 @@
 #include "common_interfaces/message_split.h"
 #include "common_interfaces/message_concate.h"
 
-typedef InterfaceTx<velma_core_cs_task_cs_msgs::VelmaCoreCsStatus > VelmaCoreCsTx;
+typedef InterfaceTx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
 
-typedef InterfaceRx<velma_core_cs_task_cs_msgs::VelmaCoreCsCommand > VelmaCoreCsRx;
+typedef InterfaceRx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsRx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
 
-typedef MessageSplit<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsCommandSplit;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsCommandSplit)
+typedef MessageSplit<velma_core_cs_types::Command_Ports > CommandSplit;
+ORO_LIST_COMPONENT_TYPE(CommandSplit)
 
-typedef MessageConcate<velma_core_cs_types::VelmaCoreCsStatus_Ports > VelmaCoreCsStatusConcate;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsStatusConcate)
+typedef MessageConcate<velma_core_cs_types::Status_Ports > StatusConcate;
+ORO_LIST_COMPONENT_TYPE(StatusConcate)
 
-typedef MessageSplit<velma_core_cs_types::VelmaCoreCsStatus_Ports > VelmaCoreCsStatusSplit;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsStatusSplit)
+typedef MessageSplit<velma_core_cs_types::Status_Ports > StatusSplit;
+ORO_LIST_COMPONENT_TYPE(StatusSplit)
 
-typedef MessageConcate<velma_core_cs_types::VelmaCoreCsCommand_Ports > VelmaCoreCsCommandConcate;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsCommandConcate)
+typedef MessageConcate<velma_core_cs_types::Command_Ports > CommandConcate;
+ORO_LIST_COMPONENT_TYPE(CommandConcate)
 
 ORO_CREATE_COMPONENT_LIBRARY()
 

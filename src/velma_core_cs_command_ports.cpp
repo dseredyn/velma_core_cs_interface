@@ -25,19 +25,19 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "velma_core_cs_task_cs_interface/velma_core_cs_command_ports.h"
+#include "velma_core_cs_task_cs_interface/command_ports.h"
 
 using namespace velma_core_cs_task_cs_msgs;
 
 namespace velma_core_cs_types {
 
 //
-// VelmaCoreCsCommand_Ports interface
+// Command_Ports interface
 //
 template <template <typename Type> class T>
-VelmaCoreCsCommand_Ports<T >::VelmaCoreCsCommand_Ports(RTT::TaskContext &tc)
+Command_Ports<T >::Command_Ports(RTT::TaskContext &tc)
 {
-    addPort(boost::shared_ptr<PortInterface<VelmaCoreCsCommand > >(new Port<T, uint32_t, VelmaCoreCsCommand, VelmaCoreCsCommand::_test_type >(tc, "cmd_test", &VelmaCoreCsCommand::test)));
+    addPort(boost::shared_ptr<PortInterface<Command > >(new Port<T, uint32_t, Command, Command::_test_type >(tc, "cmd_test", &Command::test)));
 }
 
 };  // namespace velma_core_cs_types

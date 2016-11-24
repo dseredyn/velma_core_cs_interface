@@ -25,25 +25,34 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __VELMA_CORE_CS_PORT_DATA_H__
-#define __VELMA_CORE_CS_PORT_DATA_H__
+#ifndef __VELMA_CORE_CS_TASK_CS_COMMAND_PORTS_H__
+#define __VELMA_CORE_CS_TASK_CS_COMMAND_PORTS_H__
 
-#include <cstring>
+#include "common_interfaces/interface_ports.h"
 
-#include <vector>
-#include <string>
+#include "velma_core_cs_task_cs_msgs/Command.h"
 
-#include "rtt/RTT.hpp"
-#include "rtt/os/TimeService.hpp"
-#include "Eigen/Dense"
+#include "velma_core_cs_task_cs_interface/port_data.h"
 
-#include "common_interfaces/interface_port_data.h"
+using namespace velma_core_cs_task_cs_msgs;
 
-namespace interface_ports {
+using namespace interface_ports;
+
+namespace velma_core_cs_types {
 
 // TODO
 
-};  // namespace interface_ports
+template <template <typename Type> class T>
+class Command_Ports : public PortsContainerOuter<Command > {
+public:
+    typedef Command Container;
+    Command_Ports(RTT::TaskContext &tc);
+};
 
-#endif  // __VELMA_CORE_CS_PORT_DATA_H__
+template class Command_Ports<RTT::InputPort >;
+template class Command_Ports<RTT::OutputPort >;
+
+};  // namespace velma_core_cs_types
+
+#endif  // __VELMA_CORE_CS_TASK_CS_COMMAND_PORTS_H__
 

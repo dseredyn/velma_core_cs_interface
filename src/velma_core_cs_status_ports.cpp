@@ -25,19 +25,19 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "velma_core_cs_task_cs_interface/velma_core_cs_status_ports.h"
+#include "velma_core_cs_task_cs_interface/status_ports.h"
 
 using namespace velma_core_cs_task_cs_msgs;
 
 namespace velma_core_cs_types {
 
 //
-// VelmaCoreCsStatus_Ports interface
+// Status_Ports interface
 //
 template <template <typename Type> class T>
-VelmaCoreCsStatus_Ports<T >::VelmaCoreCsStatus_Ports(RTT::TaskContext &tc)
+Status_Ports<T >::Status_Ports(RTT::TaskContext &tc)
 {
-    addPort(boost::shared_ptr<PortInterface<VelmaCoreCsStatus > >(new Port<T, uint32_t, VelmaCoreCsStatus, VelmaCoreCsStatus::_test_type >(tc, "status_test", &VelmaCoreCsStatus::test)));
+    addPort(boost::shared_ptr<PortInterface<Status > >(new Port<T, uint32_t, Status, Status::_test_type >(tc, "status_test", &Status::test)));
 }
 
 };  // namespace velma_core_cs_types

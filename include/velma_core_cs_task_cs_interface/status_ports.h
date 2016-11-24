@@ -25,23 +25,14 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __VELMA_CORE_CS_COMMAND_PORTS_H__
-#define __VELMA_CORE_CS_COMMAND_PORTS_H__
-
-#include <cstring>
-
-#include <vector>
-#include <string>
-
-#include "rtt/RTT.hpp"
-#include "rtt/os/TimeService.hpp"
-#include "Eigen/Dense"
+#ifndef __VELMA_CORE_CS_TASK_CS_STATUS_PORTS_H__
+#define __VELMA_CORE_CS_TASK_CS_STATUS_PORTS_H__
 
 #include "common_interfaces/interface_ports.h"
 
-#include "velma_core_cs_task_cs_msgs/VelmaCoreCsCommand.h"
+#include "velma_core_cs_task_cs_msgs/Status.h"
 
-#include "velma_core_cs_task_cs_interface/velma_core_cs_port_data.h"
+#include "velma_core_cs_task_cs_interface/port_data.h"
 
 using namespace velma_core_cs_task_cs_msgs;
 
@@ -52,16 +43,16 @@ namespace velma_core_cs_types {
 // TODO
 
 template <template <typename Type> class T>
-class VelmaCoreCsCommand_Ports : public PortsContainerOuter<VelmaCoreCsCommand > {
+class Status_Ports : public PortsContainerOuter<Status > {
 public:
-    typedef VelmaCoreCsCommand Container;
-    VelmaCoreCsCommand_Ports(RTT::TaskContext &tc);
+    typedef Status Container;
+    Status_Ports(RTT::TaskContext &tc);
 };
 
-template class VelmaCoreCsCommand_Ports<RTT::InputPort >;
-template class VelmaCoreCsCommand_Ports<RTT::OutputPort >;
+template class Status_Ports<RTT::InputPort >;
+template class Status_Ports<RTT::OutputPort >;
 
 };  // namespace velma_core_cs_types
 
-#endif  // __VELMA_CORE_CS_COMMAND_PORTS_H__
+#endif  // __VELMA_CORE_CS_TASK_CS_STATUS_PORTS_H__
 
