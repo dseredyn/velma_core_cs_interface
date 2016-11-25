@@ -32,12 +32,36 @@ using namespace velma_core_cs_task_cs_msgs;
 namespace velma_core_cs_types {
 
 //
+// CommandCartImp_Ports interface
+//
+template <template <typename Type> class T>
+CommandCartImp_Ports<T >::CommandCartImp_Ports(RTT::TaskContext &tc, const std::string &prefix, CommandCartImp Command::*ptr) :
+    PortsContainer(ptr)
+{
+    addPort(boost::shared_ptr<PortInterface<CommandCartImp > >(new Port<T, CommandCartImpTrjImp, CommandCartImp, CommandCartImp::_imp_type >(tc, prefix + "_imp", &CommandCartImp::imp)), &CommandCartImp::imp_valid);
+    addPort(boost::shared_ptr<PortInterface<CommandCartImp > >(new Port<T, CommandCartImpTrjPose, CommandCartImp, CommandCartImp::_pose_type >(tc, prefix + "_pose", &CommandCartImp::pose)), &CommandCartImp::pose_valid);
+}
+
+//
+// CommandJntImp_Ports interface
+//
+template <template <typename Type> class T>
+CommandJntImp_Ports<T >::CommandJntImp_Ports(RTT::TaskContext &tc, const std::string &prefix, CommandJntImp Command::*ptr) :
+    PortsContainer(ptr)
+{
+// TODO
+//    addPort(boost::shared_ptr<PortInterface<CommandJntImp > >(new Port<T, uint32_t, Command, Command::_test_type >(tc, "cmd_test", &Command::test)));
+}
+
+
+//
 // Command_Ports interface
 //
 template <template <typename Type> class T>
 Command_Ports<T >::Command_Ports(RTT::TaskContext &tc)
 {
-    addPort(boost::shared_ptr<PortInterface<Command > >(new Port<T, uint32_t, Command, Command::_test_type >(tc, "cmd_test", &Command::test)));
+    addPort(boost::shared_ptr<PortInterface<Command > >(new CommandCartImp_Ports<T >(tc, "cmd_cart", &Command::cart)), &Command::cart_valid);
+    addPort(boost::shared_ptr<PortInterface<Command > >(new CommandJntImp_Ports<T >(tc, "cmd_jnt", &Command::jnt)), &Command::jnt_valid);
 }
 
 };  // namespace velma_core_cs_types

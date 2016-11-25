@@ -40,7 +40,17 @@ using namespace interface_ports;
 
 namespace velma_core_cs_types {
 
-// TODO
+template <template <typename Type> class T>
+class CommandCartImp_Ports : public PortsContainer<Command, CommandCartImp > {
+public:
+    CommandCartImp_Ports(RTT::TaskContext &tc, const std::string &prefix, CommandCartImp Command::*ptr);
+};
+
+template <template <typename Type> class T>
+class CommandJntImp_Ports : public PortsContainer<Command, CommandJntImp > {
+public:
+    CommandJntImp_Ports(RTT::TaskContext &tc, const std::string &prefix, CommandJntImp Command::*ptr);
+};
 
 template <template <typename Type> class T>
 class Command_Ports : public PortsContainerOuter<Command > {
