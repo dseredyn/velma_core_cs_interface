@@ -38,23 +38,29 @@
 #include "common_interfaces/message_split.h"
 #include "common_interfaces/message_concate.h"
 
-typedef InterfaceTx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTx;
+typedef InterfaceTx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTaskCsStatusTx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
 
-typedef InterfaceRx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsRx;
+typedef InterfaceRx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTaskCsStatusRx;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
 
-typedef MessageSplit<velma_core_cs_types::Command_Ports > CommandSplit;
-ORO_LIST_COMPONENT_TYPE(CommandSplit)
+typedef InterfaceTx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsTaskCsCommandTx;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
 
-typedef MessageConcate<velma_core_cs_types::Status_Ports > StatusConcate;
-ORO_LIST_COMPONENT_TYPE(StatusConcate)
+typedef InterfaceRx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsTaskCsCommandRx;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
 
-typedef MessageSplit<velma_core_cs_types::Status_Ports > StatusSplit;
-ORO_LIST_COMPONENT_TYPE(StatusSplit)
+typedef MessageSplit<velma_core_cs_types::Command_Ports > VelmaCoreCsTaskCsCommandSplit;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsCommandSplit)
 
-typedef MessageConcate<velma_core_cs_types::Command_Ports > CommandConcate;
-ORO_LIST_COMPONENT_TYPE(CommandConcate)
+typedef MessageConcate<velma_core_cs_types::Status_Ports > VelmaCoreCsTaskCsStatusConcate;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsStatusConcate)
+
+typedef MessageSplit<velma_core_cs_types::Status_Ports > VelmaCoreCsTaskCsStatusSplit;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsStatusSplit)
+
+typedef MessageConcate<velma_core_cs_types::Command_Ports > VelmaCoreCsTaskCsCommandConcate;
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsCommandConcate)
 
 ORO_CREATE_COMPONENT_LIBRARY()
 
