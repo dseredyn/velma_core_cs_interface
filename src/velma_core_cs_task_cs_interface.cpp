@@ -39,16 +39,16 @@
 #include "common_interfaces/message_concate.h"
 
 typedef InterfaceTx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTaskCsStatusTx;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsStatusTx)
 
 typedef InterfaceRx<velma_core_cs_task_cs_msgs::Status > VelmaCoreCsTaskCsStatusRx;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsStatusRx)
 
 typedef InterfaceTx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsTaskCsCommandTx;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTx)
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsCommandTx)
 
 typedef InterfaceRx<velma_core_cs_task_cs_msgs::Command > VelmaCoreCsTaskCsCommandRx;
-ORO_LIST_COMPONENT_TYPE(VelmaCoreCsRx)
+ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsCommandRx)
 
 typedef MessageSplit<velma_core_cs_types::Command_Ports > VelmaCoreCsTaskCsCommandSplit;
 ORO_LIST_COMPONENT_TYPE(VelmaCoreCsTaskCsCommandSplit)
